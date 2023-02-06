@@ -1,0 +1,17 @@
+<html>
+  <head>
+    <script>
+      function checkPassword() {
+        var password = prompt("Please enter your password:");
+        if (password === atob("c2VjcmV0")) {
+          window.location.href = atob("aHR0cDovL3B1a2V2cG4ub3JnL2F0b2JveS93ZWxjb21laW4uaHRtbA==");
+        } else {
+          alert("Incorrect password. Try again.");
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <button onclick="checkPassword()">Click here to access the new page</button>
+  </body>
+</html>
