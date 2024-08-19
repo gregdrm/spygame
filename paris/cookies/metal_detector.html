@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html translate="no">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contrôle des détecteurs de métaux des musées</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .control-box {
+            background-color: #fff;
+            padding: 20px;
+            box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);
+            border-radius: 10px;
+            text-align: center;
+        }
+        .switch {
+            position: relative;
+            display: inline-block;
+            width: 60px;
+            height: 34px;
+        }
+        .switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+        .slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #ccc;
+            transition: .4s;
+            border-radius: 34px;
+        }
+        .slider:before {
+            position: absolute;
+            content: "";
+            height: 26px;
+            width: 26px;
+            left: 4px;
+            bottom: 4px;
+            background-color: white;
+            transition: .4s;
+            border-radius: 50%;
+        }
+        input:checked + .slider {
+            background-color: #2196F3;
+        }
+        input:checked + .slider:before {
+            transform: translateX(26px);
+        }
+        p {
+            font-size: 18px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="control-box">
+    <h2>Détecteurs de métaux de musée</h2>
+    <label class="switch">
+        <input type="checkbox" id="metalDetectorSwitch" checked> <!-- Default checked -->
+        <span class="slider"></span>
+    </label>
+    <p id="status">Les détecteurs de métaux sont allumés</p> <!-- Default status -->
+</div>
+
+<script>
+// Function to get a cookie value by name
+function getCookie(name) {
+    let value = "; " + document.cookie;
+    let parts = value.split("; " + name + "=");
+    if (parts.length === 2) return parts.pop().split(";").shift();
+}
+
+// Vérifiez si le cookie 'accéder' est paramétré sur 'vraie'
+if (getCookie('accéder') !== 'vraie') {
+    // Redirection vers la page de connexion si le cookie n'est pas correctement défini
+    window.location.href = "login.html";
+}
+
+// Set the initial status based on the default switch position
+document.getElementById('status').textContent = 'Les détecteurs de métaux sont allumés';
+
+// Toggle metal detector status
+document.getElementById('metalDetectorSwitch').addEventListener('change', function() {
+    if(this.checked) {
+        document.getElementById('status').textContent = 'Les détecteurs de métaux sont allumés';
+    } else {
+        document.getElementById('status').textContent = 'Les détecteurs de métaux sont éteints';
+    }
+});
+</script>
+
+</body>
+</html>

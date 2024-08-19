@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Boîte de dépôt faite maison</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            display: none; /* Initially hide the page content */
+        }
+        .dropbox-folder {
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            width: 600px;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .dropbox-folder h2 {
+            margin-top: 0;
+            font-size: 24px;
+            color: #333;
+        }
+        .file-list {
+            list-style-type: none;
+            padding: 0;
+        }
+        .file-list li {
+            background-color: #f9f9f9;
+            border: 1px solid #ddd;
+            padding: 10px;
+            margin-bottom: 10px;
+            border-radius: 3px;
+            display: flex;
+            align-items: center;
+            transition: background-color 0.3s;
+        }
+        .file-list li:hover {
+            background-color: #f1f1f1;
+        }
+        .file-list .file-icon {
+            width: 32px;
+            height: 32px;
+            margin-right: 10px;
+            background-color: #6c757d;
+            border-radius: 3px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .file-list .file-icon i {
+            color: #fff;
+            font-size: 18px;
+        }
+        .file-list .file-name {
+            font-size: 16px;
+            color: #0073e6;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+
+<div class="dropbox-folder">
+    <h2>Boîte de dépôt faite maison</h2>
+    <ul class="file-list">
+        <li>
+            <div class="file-icon">
+                <i>R</i>
+            </div>
+            <a href="Olympic-Results-2024.csv" class="file-name">Olympic-Results-2024.csv</a>
+        </li>
+        <li>
+            <div class="file-icon">
+                <i>P</i>
+            </div>
+            <a href="Paris2024-Event-Schedule.pdf" class="file-name">Paris2024-Event-Schedule.pdf</a>
+        </li>
+        <li>
+            <div class="file-icon">
+                <i>M</i>
+            </div>
+            <a href="Medal-Count-2024.xlsx" class="file-name">Medal-Count-2024.xlsx</a>
+        </li>
+        <li>
+            <div class="file-icon">
+                <i>P</i>
+            </div>
+            <a href="Participant-List-2024.docx" class="file-name">Participant-List-2024.docx</a>
+        </li>
+         <li>
+            <div class="file-icon">
+                <i>T</i>
+            </div>
+            <a href="NFR-385-293843-286.txt" class="file-name">NFR-385-293843-286.txt</a>
+        </li>
+        <li>
+            <div class="file-icon">
+                <i>S</i>
+            </div>
+            <a href="Security-Plan-Olympics2024.pdf" class="file-name">Security-Plan-Olympics2024.pdf</a>
+        </li>
+        <li>
+            <div class="file-icon">
+                <i>L</i>
+            </div>
+            <a href="Logistics-Plan-Paris2024.docx" class="file-name">Logistics-Plan-Paris2024.docx</a>
+        </li>
+        <li>
+            <div class="file-icon">
+                <i>S</i>
+            </div>
+            <a href="Stadium-Blueprints-2024.pdf" class="file-name">Stadium-Blueprints-2024.pdf</a>
+        </li>
+        <li>
+            <div class="file-icon">
+                <i>T</i>
+            </div>
+            <a href="Ticket-Sales-Data-2024.csv" class="file-name">Ticket-Sales-Data-2024.csv</a>
+        </li>
+        <li>
+            <div class="file-icon">
+                <i>V</i>
+            </div>
+            <a href="Volunteer-Roster-2024.xlsx" class="file-name">Volunteer-Roster-2024.xlsx</a>
+        </li>
+        <li>
+            <div class="file-icon">
+                <i>F</i>
+            </div>
+            <a href="Final-Report-Olympics-2022.pdf" class="file-name">Final-Report-Olympics-2022.pdf</a>
+        </li>
+    </ul>
+</div>
+
+<script>
+    // Prompt the user for a password
+    var motdepasse = prompt("Entrez le mot de passe pour accéder :");
+
+    // Check if the password is correct
+    if (motdepasse === "laisse-moi-entrer") {
+        document.body.style.display = "flex"; // Show the content if the password is correct
+    } else {
+        alert("Mot de passe incorrect !");
+        window.location.href = "https://www.google.com"; // Redirect to a different page if the password is wrong
+    }
+</script>
+
+</body>
+</html>

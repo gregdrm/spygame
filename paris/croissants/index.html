@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html translate="no">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Visionneuse d'images de croissants</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f4f4f4;
+            overflow: hidden;
+            flex-direction: column;
+        }
+        #viewport {
+            width: 500px;
+            height: 333px;
+            overflow: hidden;
+            border: 2px solid #000;
+            position: relative;
+        }
+        #image-container {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+        #image {
+            transform-origin: center center;
+            transition: transform 0.25s ease;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+        #instructions {
+            margin-top: 10px;
+            font-family: Arial, sans-serif;
+            font-size: 16px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+<div id="viewport">
+    <div id="image-container">
+        <img id="image" src="croissants.png" alt="Delicious Croissants">
+    </div>
+</div>
+
+<div id="instructions">
+    <p>Utilisez la <strong>Barre d'espace</strong> pour zoomer, la touche <strong>Entrée</strong> pour dézoomer.</p>
+    <p>Utilisez les <strong>Flèches directionnelles</strong> pour déplacer l'image.</p>
+
+</div>
+
+<script>
+    const image = document.getElementById('image');
+    let scale = 1;
+    let posX = 0;
+    let posY = 0;
+    const moveStep = 20; // The amount of pixels to move with each arrow key press
+
+    function zoomIn() {
+        scale *= 1.1;  // Increase zoom level
+        image.style.transform = `scale(${scale}) translate(${posX}px, ${posY}px)`;
+    }
+
+    function zoomOut() {
+        scale *= 0.9;  // Decrease zoom level
+        image.style.transform = `scale(${scale}) translate(${posX}px, ${posY}px)`;
+    }
+
+    function moveImage(xChange, yChange) {
+        posX += xChange;
+        posY += yChange;
+        image.style.transform = `scale(${scale}) translate(${posX}px, ${posY}px)`;
+    }
+
+    document.addEventListener('keydown', function(e) {
+        switch (e.key) {
+            case ' ':
+                e.preventDefault(); // Prevent default spacebar behavior
+                zoomIn();
+                break;
+            case 'Enter':
+                e.preventDefault(); // Prevent default enter key behavior
+                zoomOut();
+                break;
+            case 'ArrowUp':
+                e.preventDefault(); // Prevent arrow keys from scrolling the page
+                moveImage(0, moveStep);
+                break;
+            case 'ArrowDown':
+                e.preventDefault(); // Prevent arrow keys from scrolling the page
+                moveImage(0, -moveStep);
+                break;
+            case 'ArrowLeft':
+                e.preventDefault(); // Prevent arrow keys from scrolling the page
+                moveImage(moveStep, 0);
+                break;
+            case 'ArrowRight':
+                e.preventDefault(); // Prevent arrow keys from scrolling the page
+                moveImage(-moveStep, 0);
+                break;
+        }
+    });
+</script>
+
+</body>
+</html>
